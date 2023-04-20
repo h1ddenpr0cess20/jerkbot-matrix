@@ -10,7 +10,7 @@ h1ddenpr0cess2085@gmail.com
 @vvagabondd
 March 2023
 
-still has a few bugs to work on, mostly error handling stuff.  i'm self-taught and this is a learning project.
+still has a few bugs to work on, mostly error handling stuff.
 '''
 
 from matrix_client.client import MatrixClient
