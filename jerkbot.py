@@ -7,6 +7,7 @@ There is a list of random examples included in the prompts.py file which also in
 
 Written by vagabond @realvagabond:matrix.org
 h1ddenpr0cess2085@gmail.com
+@vvagabondd
 March 2023
 
 still has a few bugs to work on, mostly error handling stuff.  i'm self-taught and this is a learning project.
