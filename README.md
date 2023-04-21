@@ -10,4 +10,6 @@ Get an OpenAI API key
 
 Set up a Matrix account for your bot.  You'll need the username, password, and access token.
 
-Plug those into the appropriate variables in the MatrixBotLauncher.py and run it
+Plug those into the appropriate variables in the MatrixBotLauncher.py and run it.
+
+If you want to use the solo version, just replace jerkbot with jerkbot-solo in MatrixBotLauncher.py
