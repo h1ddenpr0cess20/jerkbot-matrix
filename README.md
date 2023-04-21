@@ -30,7 +30,7 @@ To use the solo version, just swap jerkbot with jerkbot_solo in MatrixBotLaunche
 **.persona _personality_**
     Changes the personality.  It can be a character, personality type, object, idea.
     Don't use a custom prompt here.
-    If you want to use a custom prompt, use .stock then use .ai <custom prompt>
+    If you want to use a custom prompt, use .stock then use .ai _custom prompt_
         
 **.reset**
     Reset to preset personality
