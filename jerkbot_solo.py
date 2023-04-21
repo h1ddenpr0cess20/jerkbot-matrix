@@ -176,7 +176,7 @@ Solo version, chat like normal and it responds.  This works best in a channel wi
                          flagged = self.moderate(message) #check with openai moderation endpoint
                          if flagged: #Flagged by moderation
                             self.matrix.send_message(self.room_id, "This message violates the OpenAI usage policy and was not sent.")
-                        else:
+                         else:
                             self.messages.append({"role": "user", "content": message})
                             response = self.respond(self.messages)
                             #Send response to channel
