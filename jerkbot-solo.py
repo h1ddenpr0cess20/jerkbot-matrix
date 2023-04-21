@@ -90,11 +90,6 @@ class AIbot:
             if event["type"] == "m.room.message" and event["sender"] != self.bot_id:
                 message = event["content"]["body"]
                 try:
-    ##                #Trigger bot response with .ai
-    ##                if message.startswith(".ai "):
-    ##                    #Strips .ai from the message
-    ##                    message = message.lstrip(".ai ")
-                    #Adds the message to the history
                     
                     #Resets bot back to default personality
                     if message.startswith(".reset"):
@@ -109,9 +104,13 @@ class AIbot:
                     #Set personality
                     elif message.startswith(".persona "):
                         message = message.lstrip(".persona")
-                        self.persona(message)
-                        response = self.respond(self.messages)
-                        self.matrix.send_message(self.room_id, response)
+                        flagged = self.moderate(message)
+                        if flagged:
+                            self.matrix.send_message(self.room_id, "This persona violates the OpenAI usage policy and has been rejected.  Choose a new persona.")
+                        else:
+                            self.persona(message)
+                            response = self.respond(self.messages)
+                            self.matrix.send_message(self.room_id, response)
                     elif message.startswith(".prompt "):
                         message = message.lstrip(".prompt")
                         message = message.strip() #needed for issue i had with previous line removing first letter of message
@@ -174,17 +173,18 @@ Solo version, chat like normal and it responds.  This works best in a channel wi
         .prompt {}
 '''.format(self.display_name, self.personality, persona_ex1, persona_ex2, persona_ex3, prompt_ex1, prompt_ex2, prompt_ex3))
                     else:
-                        self.messages.append({"role": "user", "content": message})
-                        try:
+                         flagged = self.moderate(message) #check with openai moderation endpoint
+                         if flagged: #Flagged by moderation
+                            self.matrix.send_message(self.room_id, "This message violates the OpenAI usage policy and was not sent.")
+                        else:
+                            self.messages.append({"role": "user", "content": message})
                             response = self.respond(self.messages)
                             #Send response to channel
                             self.matrix.send_message(self.room_id, response)
                             #Shrink history list
                             if len(self.messages) >= 18:
-                                del self.messages[1:3]    
-                        #Too many tokens
-                        except Exception as e:
-                            print(e)
+                                del self.messages[1:3]
+                       
                 except Exception as e:
                     print(e)
                     sys.exit()
