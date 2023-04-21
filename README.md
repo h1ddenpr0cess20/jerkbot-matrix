@@ -1,18 +1,24 @@
 # jerkbot-matrix
 
-Jerkbot is an OpenAI chatbot for the Matrix chat protocol.  It is named for the sarcastic jerk personality I use for my instance.  You can set any default personality you would like.  It can be changed at any time, and each user has their own separate chat history with their chosen personality setting.  Users can interact with each others chat histories for collaboration if they would like, but otherwise, conversations are separated.
+Jerkbot is an OpenAI chatbot for the [Matrix](https://matrix.org/) chat protocol.  It is named for the sarcastic jerk personality I use for my instance.  You can set any default personality you would like.  It can be changed at any time, and each user has their own separate chat history with their chosen personality setting.  Users can interact with each others chat histories for collaboration if they would like, but otherwise, conversations are separated.
 
 ## Installation
 
-Install the dependencies matrix_client and openai
+```
+pip3 install matrix_client openai
+```
 
-Get an OpenAI API key
+Get an [OpenAI API](https://platform.openai.com/signup) key 
 
-Set up a Matrix account for your bot.  You'll need the username, password, and access token.
+Set up a [Matrix account](https://app.element.io/#/welcome) for your bot.  You'll need the username, password, and access token.  The access token is located at the bottom of the Help & About section of the settings.
 
-Plug those into the appropriate variables in the MatrixBotLauncher.py and run it.
+Plug those into the appropriate variables in the MatrixBotLauncher.py.
 
-To use the solo version, just swap jerkbot with jerkbot_solo in MatrixBotLauncher.py
+To use the solo version, just swap jerkbot with jerkbot_solo in MatrixBotLauncher.py.
+
+```
+python3 MatrixBotLauncher.py
+```
 
 
 ## Use
