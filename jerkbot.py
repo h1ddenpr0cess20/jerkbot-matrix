@@ -138,7 +138,7 @@ class AIbot:
             except Exception as e: #fix?
                 self.matrix.send_message(self.room_id, e)
             #Shrink history list
-            if len(self.messages[sender]) > 16:
+            if len(self.messages[sender]) > 18:
                 del self.messages[sender][1:3]  #delete the first set of question and answers 
         
     #OpenAI moderation endpoint, checks if it violates ToS
@@ -153,7 +153,6 @@ class AIbot:
     def handle_message(self, event):
         
         self.matrix.sync()
-        keys = prompts.prompt.keys() #get key names from custom prompts, defined up here because it's used in both .prompts help and .help 
         
         #convert time to same format as self.join_time
         message_time = event["origin_server_ts"] / 1000
@@ -255,7 +254,7 @@ class AIbot:
                         message = message.lstrip(".prompt")
                         message = message.strip() #needed for issue i had with previous line removing first letter of message
                         #matches a key in the prompts dictionary
-                        if message in keys:
+                        if message in prompts.prompt.keys():
                             self.messages[sender].clear()
                             message = prompts.prompt[message] #select matching key from dictionary
                             
@@ -267,7 +266,7 @@ class AIbot:
                         #Prompts help lists the available commands
                         elif message == "help":
                             message = ""
-                            for key in sorted(keys):
+                            for key in sorted(prompts.prompt.keys()):
                                 message += (key + ", ") #create comma separate list of keys
                             self.matrix.send_message(self.room_id, message)
                     #Help menu
@@ -275,7 +274,7 @@ class AIbot:
 
                         #create list of keys in prompts
                         keylist = []
-                        for key in keys:
+                        for key in prompts.prompt.keys():
                             keylist.append(key)
                             
                        #used below for .format
