@@ -17,17 +17,17 @@ To use the solo version, just swap jerkbot with jerkbot_solo in MatrixBotLaunche
 
 ## Use
 
-**.ai <message> or {}: <message>**
+**.ai _message_ or botname: _message_**
     Basic usage.
     Personality is preset by bot operator.
     In jerkbot-solo, just chat like normal instead of using this.
   
-**.x <user> <message>**
+**.x _user message_**
     This allows you to talk to another user's chat history.
     <user> is the display name of the user whose history you want to use
     (Not available in jerkbot-solo)
       
-**.persona <personality type or character or inanimate object>**
+**.persona _personality_**
     Changes the personality.  It can be a character, personality type, object, idea.
     Don't use a custom prompt here.
     If you want to use a custom prompt, use .stock then use .ai <custom prompt>
@@ -41,5 +41,5 @@ To use the solo version, just swap jerkbot with jerkbot_solo in MatrixBotLaunche
 **.prompt help**
     Lists custom prompts available for functions not easily set with .persona.
     
-**.prompt <prompt>**
+**.prompt _prompt_**
     Use special prompt from list of prompts
