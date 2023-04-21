@@ -100,9 +100,12 @@ class AIbot:
                     if message.startswith(".reset"):
                         self.messages.clear()
                         self.persona(self.personality)
+                        self.matrix.send_message(self.room_id, "Reset to {}".format(self.personality))
                     #Remove personality by clearing history
                     elif message.startswith(".stock"):
                         self.messages.clear()
+                        self.messages.append({"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible."})
+                        self.matrix.send_message(self.room_id, "Bot has been reset to stock ChatGPT settings")
                     #Set personality
                     elif message.startswith(".persona "):
                         message = message.lstrip(".persona")
