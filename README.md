@@ -24,7 +24,7 @@ To use the solo version, just swap jerkbot with jerkbot_solo in MatrixBotLaunche
   
 **.x _user message_**
     This allows you to talk to another user's chat history.
-    <user> is the display name of the user whose history you want to use
+    _user_ is the display name of the user whose history you want to use
     (Not available in jerkbot-solo)
       
 **.persona _personality_**
