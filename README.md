@@ -12,3 +12,4 @@ Set up a Matrix account for your bot.  You'll need the username, password, and a
 
 Plug those into the appropriate variables in the MatrixBotLauncher.py and run it.
 
+To use the solo version, just swap jerkbot with jerkbot_solo in MatrixBotLauncher.py
