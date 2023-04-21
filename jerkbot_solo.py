@@ -1,5 +1,4 @@
 ## Jerkbot, an OpenAI chatbot for the Matrix chat protocol.  Uses gpt-3.5-turbo to generate responses with a preset personality which can be changed.
-## Importable for use in other programs
 
 from matrix_client.client import MatrixClient
 from matrix_client.api import MatrixHttpApi
