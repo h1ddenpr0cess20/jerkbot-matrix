@@ -59,7 +59,7 @@ class AIbot:
         except Exception as e:
             print(e)
             self.logged_in = False
-            exit()
+            #exit()
             
     def get_display_names(self):
         members = self.matrix.get_room_members(self.room_id)
@@ -69,7 +69,6 @@ class AIbot:
                 self.display_names.update({member["content"]["displayname"]:member["sender"]})
             except:
                 pass
-        #print(self.display_names)
         
     #start bot
     def start(self):
@@ -138,7 +137,7 @@ class AIbot:
             except Exception as e: #fix?
                 self.matrix.send_message(self.room_id, e)
             #Shrink history list
-            if len(self.messages[sender]) > 18:
+            if len(self.messages[sender]) > 16: #if this gets too big, you'll get a token error
                 del self.messages[sender][1:3]  #delete the first set of question and answers 
         
     #OpenAI moderation endpoint, checks if it violates ToS
