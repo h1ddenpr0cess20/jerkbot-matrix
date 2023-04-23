@@ -223,6 +223,13 @@ if __name__ == "__main__":
 
     input("BOT RUNNING.  press enter to quit") #prevents the program from exiting
 
-    bot.stop()
+    #bot.stop()
+    ''' If uncommented, the bot leaves the channel when the program exits.
+    disabled due to a bug where if you create a channel with the account you use for this bot,
+    and nobody else joins the channel, and then you press enter to exit the program,
+    the channel will be empty and you can't join it again.
+    
+    Commented out, the bot's username will remain in the channel even if the bot is not running.
+'''
 
         
