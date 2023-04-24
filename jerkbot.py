@@ -22,6 +22,7 @@ import datetime
 import random
 import prompts
 import threading
+import sys
 
 class AIbot:
     def __init__(self, server, token, username, password, channel, personality):
@@ -49,7 +50,7 @@ class AIbot:
         self.room_id = self.matrix.get_room_id(self.channel) #room bot is in
         self.join_time = datetime.datetime.now() #time bot joined
 
-        self.messages = {} #Dictonary with lists of dictionaries keeps track of history
+        self.messages = {} #keeps track of history
 
     def login(self):
         try:
@@ -59,7 +60,7 @@ class AIbot:
         except Exception as e:
             print(e)
             self.logged_in = False
-            #exit()
+            sys.exit()
             
     def get_display_names(self):
         members = self.matrix.get_room_members(self.room_id)
@@ -82,12 +83,15 @@ class AIbot:
         self.client.start_listener_thread()
         self.matrix.sync() #unsure if needed?
         
-        #self.matrix.send_message(self.room_id, "Hey, I'm {}, an OpenAI chatbot.  Type .help for more information.".format(self.display_name)) #optional entrance message
+        self.matrix.send_message(self.room_id, "Hey, I'm {}, an OpenAI chatbot.  Type .help for more information.".format(self.display_name)) #optional entrance message
 
     #Stop bot   
     def stop(self):
-        #self.matrix.send_message(self.room_id, "Goodbye for now.") #optional exit message
+        #add a check to see if the bot is the only user in the channel
+        
+        self.matrix.send_message(self.room_id, "Goodbye for now.") #optional exit message
         self.matrix.leave_room(self.room_id)
+        
 
     #Sets the personality for the bot
     def persona(self, sender, persona):
@@ -115,11 +119,8 @@ class AIbot:
     #Create AI response
     def respond(self, sender, message, sender2=None):
         try:
-            #Generate response with gpt-3.5-turbo model
-            response = openai.ChatCompletion.create(
-              model="gpt-3.5-turbo", 
-              messages=message)
-            
+            #Generate response with gpt-3.5-turbo model, you can change to gpt-4 if you have access and want to spend the money.  i have access but i can't afford it.
+            response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=message)
         except Exception as e:
             self.matrix.send_message(self.room_id, e)
         else:
