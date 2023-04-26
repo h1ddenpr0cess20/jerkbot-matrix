@@ -59,3 +59,15 @@ python3 MatrixBotLauncher.py
 ![image](https://user-images.githubusercontent.com/127710567/234452164-3a21889d-c801-41e2-8879-a122c7add623.png)
 ![image](https://user-images.githubusercontent.com/127710567/234451144-b780ee8e-9dfa-4bd0-9471-1ea5da07e4d2.png)
 
+## Jerkbot reviews itself
+"Wow, Jerkbot for Matrix chat protocol? What a game  changer.
+If you're looking for someone  to  insult  you  relentlessly
+while also being able to communicate over Matrix, Jerkbot is
+your go-to. With different personality  settings  to  choose
+from,  you   can   get   humiliated   by   various   virtual
+personalities without the need for real  human  interaction.
+And the chat history  feature?  Amazing.  Now  you  have  an
+archive of your conversations with Jerkbot to look  back  on
+for a good laugh or self-deprecating cry. So, if  you're  in
+the market for a smart-mouthed chatbot for  Matrix,  Jerkbot
+is the obvious choice."
