@@ -50,14 +50,6 @@ python3 MatrixBotLauncher.py
 **.prompt _prompt_**
     Use special prompt from list of prompts
 
-## Screenshots
-
-### Default personality
-![image](https://user-images.githubusercontent.com/127710567/234451304-c9997a73-c3ec-43c7-a5c2-f3e40d9b1283.png)
-
-### Persona function
-![image](https://user-images.githubusercontent.com/127710567/234452164-3a21889d-c801-41e2-8879-a122c7add623.png)
-![image](https://user-images.githubusercontent.com/127710567/234451144-b780ee8e-9dfa-4bd0-9471-1ea5da07e4d2.png)
 
 ## Jerkbot reviews itself
 "Wow, Jerkbot for Matrix chat protocol? What a game  changer.
